@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    username: ${USERNAME}
+    url: ${URL}
+    password: ${PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    defer-datasource-initialization: false
+    hibernate:
+      ddl-auto: update
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    open-in-view: false
+
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      chat:
+        options:
+          temperature: 0.7
+          model: gpt-4
+
+jwt:
+  access-token-expiration-period-day: 1
+  refresh-token-expiration-period-month: 3
+  secret-key: $n3c98n39hg938h9chgg0593u0g209cgu5gcn8394g0cn3209c34u0cn4tgr09gx98nu2tvn9vsdhols
+
+exclude-auth-path-patterns:
+  paths:
+    - path-pattern: /users/register
+      method: POST
+    - path-pattern: /users/login
+      method: POST
